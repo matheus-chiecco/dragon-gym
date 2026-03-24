@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dragon Gym</title>
+    <link rel="icon" href="img/logo.png" type="image/png">
+    <link rel="shortcut icon" href="img/logo.png" type="image/png">
+    <meta
+      name="description"
+      content="Treine com foco, energia e acompanhamento profissional na Dragon Gym. Estrutura moderna, planos acessíveis e resultados reais."
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="topbar" id="topbar">
+      <div class="container nav-wrap">
+        <a href="#home" class="logo" aria-label="Dragon Gym">
+          <img src="img/logo.png" alt="Dragon Gym" class="logo-img" />
+        </a>
+
+        <nav id="mainNav" class="nav" aria-label="Menu principal">
+          <a href="#home" class="nav-link active">Início</a>
+          <a href="#sobre" class="nav-link">Sobre</a>
+          <a href="#planos" class="nav-link">Planos</a>
+          <a href="#estrutura" class="nav-link">Estrutura</a>
+          <a href="#galeria" class="nav-link">Galeria</a>
+          <a href="#contato" class="nav-link">Contato</a>
+        </nav>
+
+        <a href="#contato" class="btn btn-primary desktop-cta">Matricule-se</a>
+
+        <button
+          class="burger"
+          id="burger"
+          aria-label="Abrir menu"
+          aria-expanded="false"
+          aria-controls="mainNav"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" id="home">
+        <div class="hero-overlay"></div>
+
+        <div class="container hero-content" data-anim="fade-up">
+          <p class="headline">#SUA TRANSFORMAÇÃO COMEÇA AGORA</p>
+          <h1>Força, disciplina e resultado em um só lugar</h1>
+          <p class="subtitle">
+            A Dragon Gym foi criada para quem quer evoluir de verdade, com um
+            ambiente preparado, acompanhamento dedicado e treinos que acompanham
+            seu ritmo.
+          </p>
+
+          <div class="hero-btns">
+            <a class="btn btn-primary" href="#contato">Começar agora</a>
+            <a class="btn btn-outline" href="#planos">Ver planos</a>
+          </div>
+
+          <div class="hero-highlights">
+            <span><strong>Treinos personalizados</strong></span>
+            <span><strong>Ambiente motivador</strong></span>
+            <span><strong>Acompanhamento próximo</strong></span>
+          </div>
+
+          <div class="hero-stats" data-anim="fade-up">
+            <article class="hero-stat">
+              <strong>+150</strong>
+              <span>alunos ativos</span>
+            </article>
+            <article class="hero-stat">
+              <strong>+40</strong>
+              <span>equipamentos</span>
+            </article>
+            <article class="hero-stat">
+              <strong>+10</strong>
+              <span>anos de evolução</span>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="about" id="sobre">
+        <div class="container about-wrap">
+          <div class="about-img" data-anim="fade-left"></div>
+
+          <div class="about-text" data-anim="fade-right">
+            <div class="section-head section-head-left">
+              <h2>Quem somos</h2>
+              <p>
+                Mais do que uma academia, somos um espaço de evolução física e
+                mental.
+              </p>
+            </div>
+
+            <p>
+              A Dragon Gym é uma academia raíz, feita para quem quer treinar com
+              foco, técnica e constância. Aqui, cada aluno recebe atenção,
+              orientação e um ambiente pensado para manter a motivação em alta.
+            </p>
+
+            <p>
+              Nossa equipe acompanha o seu desenvolvimento, corrige postura,
+              ajusta treinos e ajuda você a buscar resultados reais com
+              segurança.
+            </p>
+
+            <div class="about-cards">
+              <article class="info-card">
+                <h3>Ambiente confortável</h3>
+                <p>
+                  Espaço organiozado para você treinar com foco e tranquilidade.
+                </p>
+              </article>
+
+              <article class="info-card">
+                <h3>Acompanhamento próximo</h3>
+                <p>Suporte ajudar você a evoluir com mais segurança.</p>
+              </article>
+
+              <article class="info-card">
+                <h3>Equipamentos essenciais</h3>
+                <p>
+                  Estrutura completa para musculação e treinos do dia a dia.
+                </p>
+              </article>
+
+              <article class="info-card">
+                <h3>Para todos os níveis</h3>
+                <p>
+                  Treinos adaptados para iniciantes e alunos mais avançados.
+                </p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="plans" id="planos">
+        <div class="container section-head" data-anim="fade-up">
+          <h2>Planos de assinatura</h2>
+          <p>Escolha o plano ideal para sua rotina e treine do seu jeito.</p>
+        </div>
+
+        <div class="container plans-grid">
+          <article class="plan-card" data-anim="fade-up">
+            <h3>Plano Mensal</h3>
+            <p class="price">R$ 80<span>/mês</span></p>
+            <ul>
+              <li>Acesso completo à academia</li>
+              <li>Sem fidelidade</li>
+            </ul>
+            <a href="#contato" class="btn btn-plan"
+              >Assinar agora</a
+            >
+          </article>
+
+          <article class="plan-card" data-anim="fade-up">
+            <h3>Plano Trimestral</h3>
+            <p class="price">R$ 70<span>/mês</span></p>
+            <ul>
+              <li>Acesso completo à academia</li>
+              <li>Fidelidade de 3 meses</li>
+              <li>Melhor custo-benefício</li>
+            </ul>
+            <a href="#contato" class="btn btn-plan"
+              >Assinar agora</a
+            >
+          </article>
+
+          <article class="plan-card" data-anim="fade-up">
+            <h3>Plano Anual</h3>
+            <p class="price">R$ 60<span>/mês</span></p>
+            <ul>
+              <li>Acesso completo à academia</li>
+              <li>Fidelidade de 12 meses</li>
+              <li>Maior economia</li>
+            </ul>
+            <a href="#contato" class="btn btn-plan"
+              >Assinar agora</a
+            >
+          </article>
+        </div>
+      </section>
+
+      <section class="features" id="estrutura">
+        <div class="container section-head" data-anim="fade-up">
+          <h2>Nossa estrutura</h2>
+          <p>
+            Um ambiente completo para você treinar com desempenho, conforto e
+            segurança.
+          </p>
+        </div>
+
+        <div class="container features-grid">
+          <article class="feature-card feature-card-highlight">
+            <div class="feature-icon">🏋️</div>
+            <h3>Musculação completa</h3>
+            <p>
+              Espaço com pesos livres e máquinas para treinos eficientes e
+              seguros.
+            </p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon">🔥</div>
+            <h3>Área de cardio</h3>
+            <p>
+              Equipamentos para melhorar o condicionamento físico e resistência.
+            </p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon">📈</div>
+            <h3>Treinos adaptados</h3>
+            <p>Exercícios ajustados para iniciantes e alunos mais avançados.</p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon">⚡</div>
+            <h3>Ambiente motivador</h3>
+            <p>Espaço ideal para manter o foco e evoluir com consistência.</p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon">💪</div>
+            <h3>Treino livre</h3>
+            <p>
+              Liberdade para treinar no seu ritmo e montar seu próprio treino.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="gallery" id="galeria">
+        <div class="container section-head" data-anim="fade-up">
+          <h2>Nosso espaço</h2>
+          <p>Conheça o ambiente onde sua evolução acontece todos os dias.</p>
+        </div>
+
+        <div class="container gallery-grid">
+          <div
+            class="gallery-item gallery-item-large"
+            style="
+              background-image: url(&quot;https://images.unsplash.com/photo-1558611848-73f7eb4001d5?auto=format&fit=crop&w=1400&q=80&quot;);
+            "
+            data-anim="zoom"
+          ></div>
+          <div
+            class="gallery-item"
+            style="
+              background-image: url(&quot;https://images.unsplash.com/photo-1571019613578-2b4358a4a5f9?auto=format&fit=crop&w=1200&q=80&quot;);
+            "
+            data-anim="zoom"
+          ></div>
+          <div
+            class="gallery-item"
+            style="
+              background-image: url(&quot;https://images.unsplash.com/photo-1584467735872-5f8f32d3b0cc?auto=format&fit=crop&w=1200&q=80&quot;);
+            "
+            data-anim="zoom"
+          ></div>
+          <div
+            class="gallery-item"
+            style="
+              background-image: url(&quot;https://images.unsplash.com/photo-1579758629932-1f8c8fa755e3?auto=format&fit=crop&w=1200&q=80&quot;);
+            "
+            data-anim="zoom"
+          ></div>
+          <div
+            class="gallery-item"
+            style="
+              background-image: url(&quot;https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1200&q=80&quot;);
+            "
+            data-anim="zoom"
+          ></div>
+        </div>
+      </section>
+
+      <section class="contact" id="contato">
+        <div class="container section-head" data-anim="fade-up">
+          <h2>Fale conosco</h2>
+          <p>
+            Preencha o formulário e nossa equipe entrará em contato em até 24h.
+          </p>
+        </div>
+
+        <div class="container contact-grid">
+          <form id="contactForm" class="contact-form" data-anim="fade-up">
+            <div class="form-group">
+              <label for="nome">Nome</label>
+              <input type="text" id="nome" placeholder="Seu nome" required />
+            </div>
+
+            <div class="form-group">
+              <label for="email">E-mail</label>
+              <input
+                type="email"
+                id="email"
+                placeholder="email@exemplo.com"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="telefone">Telefone</label>
+              <input
+                type="tel"
+                id="telefone"
+                placeholder="(11) 99999-9999"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="mensagem">Mensagem</label>
+              <textarea
+                id="mensagem"
+                rows="4"
+                placeholder="Escreva sua mensagem"
+              ></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">
+              Falar no WhatsApp
+            </button>
+          </form>
+
+          <div class="contact-info" data-anim="fade-up">
+            <h3>Dragon Gym</h3>
+            <p>
+              <strong>Endereço:</strong> Av Flácides Ferreira, 77, Gaivotas -
+              Itanhaém/SP
+            </p>
+            <p><strong>Telefone:</strong> (13) 99156-7569</p>
+            <p>
+              <strong>Horário:</strong> Seg-Sex: 6:30h - 22h | Sáb: 09h - 13h
+            </p>
+
+            <div class="social-row">
+              <a
+                href="https://www.instagram.com/dragon.gymmm/"
+                class="social-btn instagram"
+                aria-label="Instagram"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img src="img/Instagram_logo_2016.svg.png" alt="Instagram" />
+                <span>Instagram</span>
+              </a>
+
+              <a
+                href="https://wa.me/5513991567569"
+                class="social-btn whatsapp"
+                aria-label="WhatsApp"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img src="img/WhatsApp.png" alt="WhatsApp" />
+                <span>WhatsApp</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <button id="backToTop" class="back-to-top" aria-label="Voltar ao topo">
+        ↑
+      </button>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-grid">
+        <div>
+          <h3>Dragon <span>Gym</span></h3>
+          <p>Seu espaço de treino, disciplina e superação.</p>
+        </div>
+
+        <div class="footer-links">
+          <a href="#home">Início</a>
+          <a href="#sobre">Sobre</a>
+          <a href="#planos">Planos</a>
+          <a href="#estrutura">Estrutura</a>
+          <a href="#galeria">Galeria</a>
+          <a href="#contato">Contato</a>
+        </div>
+      </div>
+      <!-- FECHAMENTO QUE FALTAVA -->
+
+      <p class="copyright">© 2026 Dragon Gym. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
