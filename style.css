@@ -394,9 +394,11 @@ textarea {
 }
 
 .about-img {
-  background-image: url("https://images.unsplash.com/photo-1571019613578-2b4358a4a5f9?auto=format&fit=crop&w=1200&q=80");
+  background-image: 
+  linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.5)),
+  url("img/img2.jpg");
   background-size: cover;
-  background-position: center;
+  background-position: center 50%;
   min-height: 500px;
   border-radius: var(--radius);
   box-shadow: var(--shadow);
@@ -1153,4 +1155,34 @@ textarea {
 
 .plan-card ul {
   flex-grow: 1;
+}
+
+.gallery-item {
+  background-size: cover;
+  background-position: center;
+}
+
+/* imagem grande */
+.img1 {
+  background-size: 80%;
+  background-position: center 80%;
+}
+
+/* pequenas */
+.img2 {
+  background-size: 100%;
+  background-position: center 30%;
+}
+
+.img3 {
+  background-position: center;
+}
+
+.img4 {
+  background-position: center 90%;
+}
+
+.img5 {
+  background-size: 70%;
+  background-position: center 70%;
 }
