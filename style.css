@@ -1184,3 +1184,8 @@ textarea {
   background-size: 70%;
   background-position: center 70%;
 }
+
+a[href^="tel"] {
+  color: #fff !important;
+  text-decoration: none !important;
+}
