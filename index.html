@@ -304,6 +304,36 @@
               />
             </div>
 
+            <div class="form-group custom-select-group">
+              <label for="plano">Plano de interesse</label>
+
+              <div class="custom-select" id="customPlanoSelect">
+                <button
+                  type="button"
+                  class="custom-select-trigger"
+                  id="customSelectTrigger"
+                >
+                  <span id="customSelectText">Selecione um plano</span>
+                  <span class="custom-select-arrow"></span>
+                </button>
+
+                <div class="custom-select-options" id="customSelectOptions">
+                  <div class="custom-option" data-value="Plano Mensal">
+                    Plano Mensal
+                  </div>
+                  <div class="custom-option" data-value="Plano Trimestral">
+                    Plano Trimestral
+                  </div>
+                  <div class="custom-option" data-value="Plano Anual">
+                    Plano Anual
+                  </div>
+                </div>
+              </div>
+
+              <input type="hidden" id="plano" name="plano" required />
+              <small class="feedback"></small>
+            </div>
+
             <div class="form-group">
               <label for="mensagem">Mensagem</label>
               <textarea

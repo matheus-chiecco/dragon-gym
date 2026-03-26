@@ -1189,3 +1189,173 @@ a[href^="tel"] {
   color: #fff !important;
   text-decoration: none !important;
 }
+
+.form-group select {
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  padding: 0.82rem 0.9rem;
+  appearance: none; /* remove estilo padrão */
+  cursor: pointer;
+
+  transition:
+    border-color var(--transition),
+    background var(--transition),
+    box-shadow var(--transition);
+}
+
+/* efeito ao focar (igual input) */
+.form-group select:focus {
+  border-color: var(--yellow);
+  box-shadow: 0 0 0 3px rgba(243, 163, 37, 0.12);
+}
+
+/* opções (dropdown) */
+.form-group select option {
+  background: #141414;
+  color: #fff;
+}
+
+/* seta personalizada */
+.form-group {
+  position: relative;
+}
+
+.form-group select {
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg fill='%23f3a325' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5 7l5 5 5-5H5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 16px;
+  padding-right: 40px;
+}
+
+.custom-select-group {
+  position: relative;
+}
+
+.custom-select {
+  position: relative;
+  width: 100%;
+}
+
+.custom-select-trigger {
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  padding: 0.95rem 1rem;
+  min-height: 54px;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.18);
+  backdrop-filter: blur(6px);
+
+  transition:
+    border-color var(--transition),
+    background var(--transition),
+    box-shadow var(--transition),
+    transform var(--transition);
+}
+
+.custom-select-trigger:hover {
+  border-color: rgba(243, 163, 37, 0.45);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.custom-select.open .custom-select-trigger,
+.custom-select-trigger:focus {
+  border-color: var(--yellow);
+  box-shadow:
+    0 0 0 3px rgba(243, 163, 37, 0.12),
+    0 14px 30px rgba(0, 0, 0, 0.25);
+}
+
+.custom-select-arrow {
+  width: 11px;
+  height: 11px;
+  border-right: 2px solid var(--yellow);
+  border-bottom: 2px solid var(--yellow);
+  transform: rotate(45deg);
+  transition: transform 0.3s ease;
+  margin-left: 12px;
+  flex-shrink: 0;
+}
+
+.custom-select.open .custom-select-arrow {
+  transform: rotate(-135deg);
+}
+
+.custom-select-options {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  width: 100%;
+  background: linear-gradient(180deg, rgba(20, 20, 25, 0.98), rgba(12, 12, 14, 0.98));
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px) scale(0.98);
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease,
+    visibility 0.25s ease;
+  z-index: 30;
+}
+
+.custom-select.open .custom-select-options {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+.custom-option {
+  padding: 0.95rem 1rem;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 500;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  transition:
+    background var(--transition),
+    color var(--transition),
+    padding-left var(--transition);
+}
+
+.custom-option:last-child {
+  border-bottom: none;
+}
+
+.custom-option:hover {
+  background: rgba(255, 111, 0, 0.14);
+  color: var(--yellow);
+  padding-left: 1.2rem;
+}
+
+.custom-option.selected {
+  background: linear-gradient(90deg, rgba(255, 111, 0, 0.18), rgba(243, 163, 37, 0.1));
+  color: var(--yellow);
+  font-weight: 700;
+}
+
+.custom-select-placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+@media (max-width: 620px) {
+  .custom-select-trigger {
+    min-height: 52px;
+    padding: 0.9rem;
+  }
+
+  .custom-option {
+    padding: 0.9rem;
+  }
+}

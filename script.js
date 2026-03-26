@@ -18,12 +18,16 @@ let currentTestimonial = 0;
 let testimonialInterval;
 
 function toggleMobileMenu() {
+  if (!nav || !burger) return;
+
   const isOpen = nav.classList.toggle("show");
   burger.classList.toggle("active");
   burger.setAttribute("aria-expanded", String(isOpen));
 }
 
 function closeMobileMenu() {
+  if (!nav || !burger) return;
+
   nav.classList.remove("show");
   burger.classList.remove("active");
   burger.setAttribute("aria-expanded", "false");
@@ -66,6 +70,8 @@ function revealOnScroll() {
 }
 
 function updateTopbarShadow() {
+  if (!topbar) return;
+
   if (window.scrollY > 20) {
     topbar.classList.add("scrolled");
   } else {
@@ -92,6 +98,8 @@ function updateActiveNav() {
 }
 
 function updateBackToTop() {
+  if (!backToTop) return;
+
   if (window.scrollY > 450) {
     backToTop.style.display = "grid";
     backToTop.style.placeItems = "center";
@@ -188,15 +196,32 @@ if (phoneInput) {
 }
 
 function setFieldError(field, message) {
-  const feedback = field.parentElement.querySelector(".feedback");
+  const parent = field.parentElement;
+  const wrapper = field.closest(".form-group");
+  const feedback = wrapper ? wrapper.querySelector(".feedback") : null;
+
   if (feedback) feedback.textContent = message;
-  field.style.borderColor = "#ff6f00";
+
+  if (field.type === "hidden" && wrapper) {
+    const trigger = wrapper.querySelector(".custom-select-trigger");
+    if (trigger) trigger.style.borderColor = "#ff6f00";
+  } else {
+    field.style.borderColor = "#ff6f00";
+  }
 }
 
 function clearFieldError(field) {
-  const feedback = field.parentElement.querySelector(".feedback");
+  const wrapper = field.closest(".form-group");
+  const feedback = wrapper ? wrapper.querySelector(".feedback") : null;
+
   if (feedback) feedback.textContent = "";
-  field.style.borderColor = "";
+
+  if (field.type === "hidden" && wrapper) {
+    const trigger = wrapper.querySelector(".custom-select-trigger");
+    if (trigger) trigger.style.borderColor = "";
+  } else {
+    field.style.borderColor = "";
+  }
 }
 
 function validateEmail(email) {
@@ -209,10 +234,11 @@ function validatePhone(phone) {
 }
 
 if (contactForm) {
-  const fields = contactForm.querySelectorAll("input, textarea");
+  const fields = contactForm.querySelectorAll("input, textarea, select");
 
   fields.forEach((field) => {
     field.addEventListener("input", () => clearFieldError(field));
+    field.addEventListener("change", () => clearFieldError(field));
   });
 
   contactForm.addEventListener("submit", function (e) {
@@ -224,6 +250,7 @@ if (contactForm) {
     const nome = contactForm.nome;
     const email = contactForm.email;
     const telefone = contactForm.telefone;
+    const plano = contactForm.plano;
     const mensagem = contactForm.mensagem;
 
     fields.forEach((field) => clearFieldError(field));
@@ -243,48 +270,72 @@ if (contactForm) {
       setFieldError(telefone, "Digite um telefone válido.");
     }
 
+    if (!plano.value.trim()) {
+      valid = false;
+      setFieldError(plano, "Selecione um plano.");
+    }
+
     if (mensagem.value.trim().length < 8) {
       valid = false;
       setFieldError(mensagem, "Escreva uma mensagem um pouco maior.");
     }
 
-    if (valid) {
-      formMessage.style.color = "#f3a325";
-      formMessage.textContent =
-        "Mensagem enviada com sucesso! Em breve entraremos em contato.";
-      contactForm.reset();
-    } else {
+    if (!valid) {
       formMessage.style.color = "#ff6f00";
       formMessage.textContent = "Por favor, corrija os campos destacados.";
+      return;
+    }
+
+    const texto =
+      `Olá, vim pelo site da Dragon Gym!%0A%0A` +
+      `Plano de interesse: ${plano.value}%0A` +
+      `Nome: ${nome.value.trim()}%0A` +
+      `Email: ${email.value.trim()}%0A` +
+      `Telefone: ${telefone.value.trim()}%0A` +
+      `Mensagem: ${mensagem.value.trim()}`;
+
+    const numero = "5513991567569";
+    const urlWhats = `https://wa.me/${numero}?text=${texto}`;
+
+    formMessage.style.color = "#f3a325";
+    formMessage.textContent = "Redirecionando para o WhatsApp...";
+
+    window.open(urlWhats, "_blank");
+    contactForm.reset();
+  });
+}
+
+const customPlanoSelect = document.getElementById("customPlanoSelect");
+const customSelectTrigger = document.getElementById("customSelectTrigger");
+const customSelectText = document.getElementById("customSelectText");
+const customSelectOptions = document.getElementById("customSelectOptions");
+const customOptions = document.querySelectorAll(".custom-option");
+const planoInput = document.getElementById("plano");
+
+if (customPlanoSelect && customSelectTrigger && planoInput) {
+  customSelectTrigger.addEventListener("click", () => {
+    customPlanoSelect.classList.toggle("open");
+  });
+
+  customOptions.forEach((option) => {
+    option.addEventListener("click", () => {
+      const value = option.dataset.value;
+
+      planoInput.value = value;
+      customSelectText.textContent = value;
+      customSelectText.classList.remove("custom-select-placeholder");
+
+      customOptions.forEach((item) => item.classList.remove("selected"));
+      option.classList.add("selected");
+
+      customPlanoSelect.classList.remove("open");
+      clearFieldError(planoInput);
+    });
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!customPlanoSelect.contains(e.target)) {
+      customPlanoSelect.classList.remove("open");
     }
   });
 }
-function getPlano() {
-  const url = window.location.href;
-  const params = new URLSearchParams(url.split("?")[1]);
-  return params.get("plano") || "Não informado";
-}
-
-document.getElementById("contactForm").addEventListener("submit", function(e) {
-  e.preventDefault();
-
-  const nome = document.getElementById("nome").value;
-  const email = document.getElementById("email").value;
-  const telefone = document.getElementById("telefone").value;
-  const mensagem = document.getElementById("mensagem").value;
-  const plano = getPlano();
-
-  const texto =
-    `Olá, vim pelo site da Dragon Gym!%0A%0A` +
-    `Plano de interesse: ${plano}%0A` +
-    `Nome: ${nome}%0A` +
-    `Email: ${email}%0A` +
-    `Telefone: ${telefone}%0A` +
-    `Mensagem: ${mensagem}`;
-
-  const numero = "5513991567569";
-
-  const urlWhats = `https://wa.me/${numero}?text=${texto}`;
-
-  window.open(urlWhats, "_blank");
-});
