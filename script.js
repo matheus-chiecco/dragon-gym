@@ -196,7 +196,6 @@ if (phoneInput) {
 }
 
 function setFieldError(field, message) {
-  const parent = field.parentElement;
   const wrapper = field.closest(".form-group");
   const feedback = wrapper ? wrapper.querySelector(".feedback") : null;
 
@@ -245,7 +244,7 @@ if (contactForm) {
     e.preventDefault();
 
     let valid = true;
-    formMessage.textContent = "";
+    if (formMessage) formMessage.textContent = "";
 
     const nome = contactForm.nome;
     const email = contactForm.email;
@@ -275,16 +274,17 @@ if (contactForm) {
       setFieldError(plano, "Selecione um plano.");
     }
 
-    if (mensagem.value.trim().length < 8) {
-      valid = false;
-      setFieldError(mensagem, "Escreva uma mensagem um pouco maior.");
-    }
-
     if (!valid) {
-      formMessage.style.color = "#ff6f00";
-      formMessage.textContent = "Por favor, corrija os campos destacados.";
+      if (formMessage) {
+        formMessage.style.color = "#ff6f00";
+        formMessage.textContent = "Por favor, corrija os campos destacados.";
+      }
       return;
     }
+
+    const mensagemTexto = mensagem.value.trim()
+      ? mensagem.value.trim()
+      : "Não informada";
 
     const texto =
       `Olá, vim pelo site da Dragon Gym!%0A%0A` +
@@ -292,13 +292,15 @@ if (contactForm) {
       `Nome: ${nome.value.trim()}%0A` +
       `Email: ${email.value.trim()}%0A` +
       `Telefone: ${telefone.value.trim()}%0A` +
-      `Mensagem: ${mensagem.value.trim()}`;
+      `Mensagem: ${mensagemTexto}`;
 
     const numero = "5513991567569";
     const urlWhats = `https://wa.me/${numero}?text=${texto}`;
 
-    formMessage.style.color = "#f3a325";
-    formMessage.textContent = "Redirecionando para o WhatsApp...";
+    if (formMessage) {
+      formMessage.style.color = "#f3a325";
+      formMessage.textContent = "Redirecionando para o WhatsApp...";
+    }
 
     window.open(urlWhats, "_blank");
     contactForm.reset();
